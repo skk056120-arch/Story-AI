@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryAI Pro - Ultimate Horror Studio</title>
+    <title>StoryAI Pro - Real Voice Studio</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #050508; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
@@ -16,7 +16,7 @@
         .tab-content.active { display: flex; }
         .card { background: #161620; border: 1px solid #222233; border-radius: 12px; padding: 14px; }
         .card h3 { font-size: 13px; margin-bottom: 8px; color: #e1d5e5; display: flex; justify-content: space-between; align-items: center; }
-        textarea { width: 100%; height: 170px; background: #0b0b10; border: 1px solid #2e1c2c; border-radius: 8px; color: #fff; padding: 12px; font-size: 13px; resize: none; outline: none; line-height: 1.4; }
+        textarea { width: 100%; height: 160px; background: #0b0b10; border: 1px solid #2e1c2c; border-radius: 8px; color: #fff; padding: 12px; font-size: 13px; resize: none; outline: none; line-height: 1.4; }
         select, input[type="text"] { width: 100%; padding: 10px; background: #0b0b10; color: white; border: 1px solid #2e1c2c; border-radius: 8px; outline: none; font-size: 13px; }
         .btn-primary { width: 100%; background: linear-gradient(135deg, #e60023, #ff2a4d); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; box-shadow: 0 4px 15px rgba(230,0,35,0.4); }
         .btn-primary:active { background: #b3001b; }
@@ -41,7 +41,7 @@
         <div class="header">
             <div class="app-title">
                 <h1>STORYAI PRO</h1>
-                <p>A-to-Z Cinematic Engine</p>
+                <p>Real Voice & SFX Studio</p>
             </div>
             <div style="font-size: 11px; background: #261118; color: #ff4d6d; padding: 4px 10px; border-radius: 12px; border: 1px solid #4a1924;" id="statusBadge">● Ready</div>
         </div>
@@ -52,91 +52,54 @@
             <!-- TAB 1: STORY & GENERATOR -->
             <div class="tab-content active" id="tab-story">
                 <div class="card">
-                    <h3>UNLIMITED SCRIPT EDITOR</h3>
-                    <textarea id="storyInput" placeholder="Yahan apni kitni bhi lambi horror kahani likhein ya paste karein... App khud A-to-Z sounds aur background music sync karega.">Raat ke 2 baj rahe the. Kamre mein andhera tha aur achanak darwaza khulne ki aawaz aayi. Bahaar se dheere-dheere kadmon ki aawaz kareeb aa rahi thi...</textarea>
-                    <div style="font-size: 10px; color: #706370; margin-top: 5px;">✨ Supports unlimited text length with AI text-chunking.</div>
+                    <h3>APNI KAHANI YAHAN LIKHEIN</h3>
+                    <textarea id="storyInput" placeholder="Yahan apni horror kahani likhein ya paste karein...">Raat ke 2 baj rahe the. Kamre mein andhera tha aur achanak darwaza khulne ki aawaz aayi. Bahaar se dheere-dheere kadmon ki aawaz kareeb aa rahi thi...</textarea>
                 </div>
 
-                <button class="btn-primary" onclick="generateUltimateAudio()">⚡ Generate Master Audio & A-to-Z SFX</button>
+                <button class="btn-primary" onclick="playRealStoryVoice()">🎙️ Play & Narrate Story Voice</button>
+                <button class="btn-secondary" onclick="stopStoryVoice()" style="background: #2a1217; color: #ff758c; margin-top:0;">⏹️ Stop Voice</button>
 
                 <div class="card" id="resultCard" style="display:none;">
-                    <h3>RENDERED MASTER AUDIO</h3>
+                    <h3>AUDIO STATUS</h3>
                     <div class="status-box" id="statusBox">
-                        🔄 Synthesizing A-to-Z AI sounds & looping horror background score...
+                        🔊 Narrating your story in real voice...
                     </div>
-                    <audio id="audioPlayer" controls style="width: 100%; margin-top: 10px; display: none;"></audio>
-                    <button class="btn-secondary" id="downloadBtn" style="display:none;" onclick="downloadAudioFile()">📥 Download Master MP3 (Copyright Free)</button>
                 </div>
             </div>
 
             <!-- TAB 2: VOICES & CHARACTERS -->
             <div class="tab-content" id="tab-voice">
                 <div class="card">
-                    <h3>MULTI-CHARACTER CAST</h3>
-                    <p style="font-size: 11px; color: #8c7886; margin-bottom: 8px;">Assign voice actors for your story:</p>
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 3px;">Main Narrator (Male):</label>
-                    <select id="narratorVoice">
-                        <option>Deep Suspense Male (Lead)</option>
-                        <option>Gravelly Thriller Voice</option>
-                        <option>Dark Cinematic Base</option>
+                    <h3>VOICE CHARACTER SETTINGS</h3>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 3px;">Select Narrator Pitch/Speed:</label>
+                    <select id="voiceSpeed">
+                        <option value="0.8">Slow & Creepy Horror (0.8x)</option>
+                        <option value="1.0" selected>Normal Storytelling (1.0x)</option>
+                        <option value="1.2">Fast Narration (1.2x)</option>
                     </select>
-
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 3px;">Secondary Character (Female/Creepy):</label>
-                    <select id="subVoice">
-                        <option>Haunted Whispering Female</option>
-                        <option>Distressed Girl Voice</option>
-                        <option>Eerie Child Whisper</option>
-                    </select>
-                </div>
-                <div class="card">
-                    <h3>VOICE PACING & TONE</h3>
-                    <div style="font-size: 11px; color: #ccc; margin-bottom: 5px;">Delivery Speed: Slow & Terrifying (0.85x)</div>
-                    <input type="range" min="0.5" max="1.3" step="0.05" value="0.85" style="width: 100%; accent-color: #e60023;">
                 </div>
             </div>
 
-            <!-- TAB 3: A-TO-Z SFX & MUSIC ENGINE -->
+            <!-- TAB 3: SFX & MUSIC ENGINE -->
             <div class="tab-content" id="tab-sfx">
                 <div class="card">
-                    <h3>MASTER CONTROLS & TOGGLES</h3>
-                    <p style="font-size: 11px; color: #8c7886; margin-bottom: 5px;">Manage automatic background elements:</p>
-                    
+                    <h3>BACKGROUND MUSIC & FX</h3>
                     <div class="toggle-row">
-                        <span>🎵 Continuous Background Music (Loop)</span>
+                        <span>🎵 Horror Background Ambience</span>
                         <label class="switch"><input type="checkbox" id="bgMusicToggle" checked><span class="slider"></span></label>
                     </div>
-                    <div class="toggle-row">
-                        <span>⚡ A-to-Z Smart Auto-SFX (Footsteps, Doors)</span>
-                        <label class="switch"><input type="checkbox" id="autoSfxToggle" checked><span class="slider"></span></label>
-                    </div>
-                    <div class="toggle-row">
-                        <span>🤖 AI Custom Sound Synthesis (Fallback)</span>
-                        <label class="switch"><input type="checkbox" id="aiSynthToggle" checked><span class="slider"></span></label>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>COPYRIGHT-FREE BG MUSIC THEME</h3>
-                    <select id="bgMusicTheme">
-                        <option>Dark Ambient Drone (Looping)</option>
-                        <option>Haunted Piano Suspense (Looping)</option>
-                        <option>Psychological Horror Pulse</option>
-                        <option>Midnight Forest Wind & Chants</option>
-                    </select>
                 </div>
             </div>
 
             <!-- TAB 4: SETTINGS -->
             <div class="tab-content" id="tab-settings">
                 <div class="card">
-                    <h3>STUDIO DIAGNOSTICS</h3>
-                    <div style="font-size: 11px; background: #0b0b10; padding: 10px; border-radius: 6px; color: #b8a9c4; line-height: 1.5;">
-                        <strong>Platform:</strong> GitHub Pages (Permanent)<br>
-                        <strong>License:</strong> 100% Free & Copyright-Free Export<br>
-                        <strong>Engine Version:</strong> StoryAI Pro v3.0 Ultra
+                    <h3>APP INFO</h3>
+                    <div style="font-size: 11px; background: #0b0b10; padding: 10px; border-radius: 6px; color: #b8a9c4;">
+                        <strong>Status:</strong> Live on GitHub Pages<br>
+                        <strong>Engine:</strong> Web Speech AI Synthesis
                     </div>
                 </div>
-                <button class="btn-primary" style="background: #1d1d2b; color: #ff4d6d; box-shadow: none;" onclick="alert('App cache cleared successfully!')">🧹 Clear Temporary Storage</button>
             </div>
 
         </div>
@@ -144,13 +107,17 @@
         <!-- Bottom Navigation Bar -->
         <div class="nav-bar">
             <div class="nav-item active" onclick="switchTab('story', this)">📄<br>Story</div>
-            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Cast</div>
-            <div class="nav-item" onclick="switchTab('sfx', this)">⚡<br>SFX & Music</div>
+            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Voices</div>
+            <div class="nav-item" onclick="switchTab('sfx', this)">⚡<br>Music</div>
             <div class="nav-item" onclick="switchTab('settings', this)">⚙️<br>Settings</div>
         </div>
     </div>
 
     <script>
+        let currentUtterance = null;
+        let bgAudio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        bgAudio.loop = true;
+
         function switchTab(tabName, element) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -158,48 +125,64 @@
             element.classList.add('active');
         }
 
-        function generateUltimateAudio() {
+        function playRealStoryVoice() {
+            const storyText = document.getElementById('storyInput').value;
             const resultCard = document.getElementById('resultCard');
             const statusBox = document.getElementById('statusBox');
             const statusBadge = document.getElementById('statusBadge');
-            const audioPlayer = document.getElementById('audioPlayer');
-            const downloadBtn = document.getElementById('downloadBtn');
-
-            // Checking Toggle States
             const bgMusicOn = document.getElementById('bgMusicToggle').checked;
-            const autoSfxOn = document.getElementById('autoSfxToggle').checked;
+            const speedVal = parseFloat(document.getElementById('voiceSpeed').value);
+
+            if (!storyText.trim()) {
+                alert('Pehle kuch kahani toh likhein!');
+                return;
+            }
+
+            // Stop previous speech if any
+            window.speechSynthesis.cancel();
 
             resultCard.style.display = 'block';
-            statusBox.style.display = 'block';
-            statusBox.innerHTML = `🔄 Scanning text length...<br>` + 
-                                  (autoSfxOn ? `✓ A-to-Z AI Sound Synthesizer active<br>` : `✕ Auto-SFX disabled<br>`) +
-                                  (bgMusicOn ? `✓ Looping background music track syncing...` : `✕ Background music disabled`);
-            
-            statusBadge.innerHTML = '● Synthesizing';
+            statusBox.innerHTML = '🔊 Reading your text in voice narration...';
+            statusBadge.innerHTML = '● Playing';
             statusBadge.style.color = '#ffaa00';
-            audioPlayer.style.display = 'none';
-            downloadBtn.style.display = 'none';
 
-            setTimeout(() => {
-                statusBox.innerHTML = '✅ Master Horror Audio rendered successfully! Multi-character narration synced with continuous looping background music & A-to-Z SFX.';
+            // Play background music if enabled
+            if (bgMusicOn) {
+                bgAudio.play().catch(e => console.log('Audio play blocked'));
+            } else {
+                bgAudio.pause();
+            }
+
+            // Create speech synthesis
+            currentUtterance = new SpeechSynthesisUtterance(storyText);
+            currentUtterance.rate = speedVal;
+            currentUtterance.pitch = 0.8; // Deep horror pitch
+            
+            // Try to set Hindi voice if available
+            let voices = window.speechSynthesis.getVoices();
+            let hindiVoice = voices.find(v => v.lang.includes('hi') || v.lang.includes('IN'));
+            if (hindiVoice) {
+                currentUtterance.voice = hindiVoice;
+            }
+
+            currentUtterance.onend = function() {
+                statusBox.innerHTML = '✅ Narration completed successfully!';
                 statusBadge.innerHTML = '● Ready';
                 statusBadge.style.color = '#ff4d6d';
-                
-                audioPlayer.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-                audioPlayer.style.display = 'block';
-                downloadBtn.style.display = 'block';
-            }, 3000);
+                bgAudio.pause();
+            };
+
+            window.speechSynthesis.speak(currentUtterance);
         }
 
-        function downloadAudioFile() {
-            const a = document.createElement('a');
-            a.href = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
-            a.download = 'StoryAI_Pro_Master_Horror.mp3';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+        function stopStoryVoice() {
+            window.speechSynthesis.cancel();
+            bgAudio.pause();
+            document.getElementById('statusBox').innerHTML = '⏹️ Narration stopped.';
+            document.getElementById('statusBadge').innerHTML = '● Ready';
+            document.getElementById('statusBadge').style.color = '#ff4d6d';
         }
     </script>
 </body>
-    </html>
-                        
+ </html>
+             
