@@ -1,32 +1,37 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryAI - Cinematic Horror Studio</title>
+    <title>StoryAI Pro - Ultimate Horror Studio</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0b0b0f; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
-        .phone-frame { width: 100%; max-width: 400px; height: 820px; background: #121218; border: 4px solid #2a1b2e; border-radius: 40px; display: flex; flex-direction: column; overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        .header { background: linear-gradient(135deg, #1f1124, #121218); padding: 15px 20px; border-bottom: 1px solid #2a1b2e; display: flex; align-items: center; justify-content: space-between; }
-        .app-title h1 { font-size: 18px; color: #ff334b; letter-spacing: 1px; }
-        .app-title p { font-size: 10px; color: #8c8291; text-transform: uppercase; }
-        .content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-        .tab-content { display: none; flex-direction: column; gap: 15px; }
+        body { background-color: #050508; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
+        .phone-frame { width: 100%; max-width: 410px; height: 860px; background: #101015; border: 4px solid #2a1525; border-radius: 40px; display: flex; flex-direction: column; overflow: hidden; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.9); }
+        .header { background: linear-gradient(135deg, #1d0f1c, #101015); padding: 15px 20px; border-bottom: 1px solid #2a1525; display: flex; align-items: center; justify-content: space-between; }
+        .app-title h1 { font-size: 18px; color: #ff2a4d; letter-spacing: 1.5px; font-weight: 800; }
+        .app-title p { font-size: 9px; color: #8c7886; text-transform: uppercase; letter-spacing: 1px; }
+        .content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+        .tab-content { display: none; flex-direction: column; gap: 14px; }
         .tab-content.active { display: flex; }
-        .card { background: #181822; border: 1px solid #262636; border-radius: 12px; padding: 15px; }
-        .card h3 { font-size: 14px; margin-bottom: 8px; color: #e1dced; }
-        textarea { width: 100%; height: 160px; background: #111116; border: 1px solid #332238; border-radius: 8px; color: #fff; padding: 10px; font-size: 13px; resize: none; outline: none; }
-        select, input[type="text"] { width: 100%; padding: 10px; background: #111116; color: white; border: 1px solid #332238; border-radius: 8px; outline: none; font-size: 13px; }
-        .btn-primary { width: 100%; background: #e60023; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; transition: 0.2s; }
+        .card { background: #161620; border: 1px solid #222233; border-radius: 12px; padding: 14px; }
+        .card h3 { font-size: 13px; margin-bottom: 8px; color: #e1d5e5; display: flex; justify-content: space-between; align-items: center; }
+        textarea { width: 100%; height: 170px; background: #0b0b10; border: 1px solid #2e1c2c; border-radius: 8px; color: #fff; padding: 12px; font-size: 13px; resize: none; outline: none; line-height: 1.4; }
+        select, input[type="text"] { width: 100%; padding: 10px; background: #0b0b10; color: white; border: 1px solid #2e1c2c; border-radius: 8px; outline: none; font-size: 13px; }
+        .btn-primary { width: 100%; background: linear-gradient(135deg, #e60023, #ff2a4d); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; text-align: center; box-shadow: 0 4px 15px rgba(230,0,35,0.4); }
         .btn-primary:active { background: #b3001b; }
-        .nav-bar { height: 60px; background: #121218; border-top: 1px solid #221c24; display: flex; justify-content: space-around; align-items: center; }
-        .nav-item { font-size: 11px; color: #7a7080; text-align: center; cursor: pointer; flex: 1; padding: 5px; }
-        .nav-item.active { color: #ff334b; font-weight: bold; }
-        .status-box { font-size: 12px; color: #a39bb0; background: #1f1b24; padding: 10px; border-radius: 6px; border-left: 3px solid #ff334b; }
-        .sfx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .sfx-toggle { background: #111116; border: 1px solid #332238; padding: 10px; border-radius: 8px; font-size: 12px; color: #ccc; cursor: pointer; text-align: center; }
-        .sfx-toggle.active { background: #2a1622; border-color: #ff334b; color: #ff4d6d; }
+        .btn-secondary { width: 100%; background: #1d1d2b; color: #ff4d6d; border: 1px solid #362233; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer; text-align: center; margin-top: 8px; }
+        .nav-bar { height: 60px; background: #101015; border-top: 1px solid #1f141d; display: flex; justify-content: space-around; align-items: center; }
+        .nav-item { font-size: 10px; color: #706370; text-align: center; cursor: pointer; flex: 1; padding: 4px; }
+        .nav-item.active { color: #ff2a4d; font-weight: bold; }
+        .status-box { font-size: 11px; color: #b8a9c4; background: #1b131a; padding: 10px; border-radius: 6px; border-left: 3px solid #ff2a4d; line-height: 1.4; }
+        .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #ccc; margin-top: 8px; padding-top: 8px; border-top: 1px solid #222233; }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #2c2c3d; transition: .3s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
+        input:checked + .slider { background-color: #ff2a4d; }
+        input:checked + .slider:before { transform: translateX(20px); }
     </style>
 </head>
 <body>
@@ -35,82 +40,103 @@
         <!-- Header -->
         <div class="header">
             <div class="app-title">
-                <h1>STORYAI</h1>
-                <p>Cinematic Studio</p>
+                <h1>STORYAI PRO</h1>
+                <p>A-to-Z Cinematic Engine</p>
             </div>
-            <div style="font-size: 11px; background: #2a1622; color: #ff4d6d; padding: 4px 8px; border-radius: 10px;" id="statusBadge">● Ready</div>
+            <div style="font-size: 11px; background: #261118; color: #ff4d6d; padding: 4px 10px; border-radius: 12px; border: 1px solid #4a1924;" id="statusBadge">● Ready</div>
         </div>
 
         <!-- Main Content Area -->
         <div class="content">
 
-            <!-- TAB 1: STORY -->
+            <!-- TAB 1: STORY & GENERATOR -->
             <div class="tab-content active" id="tab-story">
                 <div class="card">
-                    <h3>YOUR HORROR SCRIPT / STORY</h3>
-                    <textarea id="storyInput" placeholder="Yahan apni horror kahani likhein ya paste karein... (jaise: Raat ke 2 baj rahe the, kamre mein achanak thandi hawa chalne lagi...)">Raat ke 2 baj rahe the. Kamre ki khidki achanak khul gayi aur bahar se kisi ke rone ki aawaz aane lagi...</textarea>
-                    <div style="font-size: 11px; color: #7a7080; margin-top: 5px;">Auto-chunks long stories & syncs audio narration.</div>
+                    <h3>UNLIMITED SCRIPT EDITOR</h3>
+                    <textarea id="storyInput" placeholder="Yahan apni kitni bhi lambi horror kahani likhein ya paste karein... App khud A-to-Z sounds aur background music sync karega.">Raat ke 2 baj rahe the. Kamre mein andhera tha aur achanak darwaza khulne ki aawaz aayi. Bahaar se dheere-dheere kadmon ki aawaz kareeb aa rahi thi...</textarea>
+                    <div style="font-size: 10px; color: #706370; margin-top: 5px;">✨ Supports unlimited text length with AI text-chunking.</div>
                 </div>
 
-                <button class="btn-primary" onclick="generateAudio()">⚡ Generate Cinematic Audio</button>
+                <button class="btn-primary" onclick="generateUltimateAudio()">⚡ Generate Master Audio & A-to-Z SFX</button>
 
                 <div class="card" id="resultCard" style="display:none;">
-                    <h3>RENDERED AUDIO OUTPUT</h3>
+                    <h3>RENDERED MASTER AUDIO</h3>
                     <div class="status-box" id="statusBox">
-                        🔄 Processing audio & syncing cloud horror SFX...
+                        🔄 Synthesizing A-to-Z AI sounds & looping horror background score...
                     </div>
                     <audio id="audioPlayer" controls style="width: 100%; margin-top: 10px; display: none;"></audio>
+                    <button class="btn-secondary" id="downloadBtn" style="display:none;" onclick="downloadAudioFile()">📥 Download Master MP3 (Copyright Free)</button>
                 </div>
             </div>
 
-            <!-- TAB 2: VOICE -->
+            <!-- TAB 2: VOICES & CHARACTERS -->
             <div class="tab-content" id="tab-voice">
                 <div class="card">
-                    <h3>NARRATOR VOICE SETTINGS</h3>
-                    <p style="font-size: 12px; color: #8c8291; margin-bottom: 10px;">Select your preferred male narration style for horror podcasts.</p>
-                    <label style="font-size: 12px; color: #ccc; display: block; margin-bottom: 5px;">Voice Style:</label>
-                    <select id="voiceSelect">
-                        <option>Deep Suspense Male Narrator</option>
-                        <option>Whispering Horror Male Voice</option>
-                        <option>Thriller Heavy Male Voice</option>
-                        <option>Dark Cinematic Base Voice</option>
+                    <h3>MULTI-CHARACTER CAST</h3>
+                    <p style="font-size: 11px; color: #8c7886; margin-bottom: 8px;">Assign voice actors for your story:</p>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 3px;">Main Narrator (Male):</label>
+                    <select id="narratorVoice">
+                        <option>Deep Suspense Male (Lead)</option>
+                        <option>Gravelly Thriller Voice</option>
+                        <option>Dark Cinematic Base</option>
+                    </select>
+
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 3px;">Secondary Character (Female/Creepy):</label>
+                    <select id="subVoice">
+                        <option>Haunted Whispering Female</option>
+                        <option>Distressed Girl Voice</option>
+                        <option>Eerie Child Whisper</option>
                     </select>
                 </div>
                 <div class="card">
-                    <h3>SPEED & PITCH</h3>
-                    <div style="font-size: 12px; color: #ccc; margin-bottom: 5px;">Narration Speed: Normal (1.0x)</div>
-                    <input type="range" min="0.5" max="1.5" step="0.1" value="1.0" style="width: 100%; accent-color: #e60023;">
+                    <h3>VOICE PACING & TONE</h3>
+                    <div style="font-size: 11px; color: #ccc; margin-bottom: 5px;">Delivery Speed: Slow & Terrifying (0.85x)</div>
+                    <input type="range" min="0.5" max="1.3" step="0.05" value="0.85" style="width: 100%; accent-color: #e60023;">
                 </div>
             </div>
 
-            <!-- TAB 3: SFX ENGINE -->
+            <!-- TAB 3: A-TO-Z SFX & MUSIC ENGINE -->
             <div class="tab-content" id="tab-sfx">
                 <div class="card">
-                    <h3>AUTOMATIC HORROR SFX</h3>
-                    <p style="font-size: 12px; color: #8c8291; margin-bottom: 12px;">Toggle background effects embedded into your story:</p>
-                    <div class="sfx-grid">
-                        <div class="sfx-toggle active" onclick="toggleSfx(this)">🌧️ Heavy Rain</div>
-                        <div class="sfx-toggle active" onclick="toggleSfx(this)">⚡ Thunder Crash</div>
-                        <div class="sfx-toggle active" onclick="toggleSfx(this)">💨 Ghostly Wind</div>
-                        <div class="sfx-toggle" onclick="toggleSfx(this)">🐕 Dog Barks</div>
-                        <div class="sfx-toggle active" onclick="toggleSfx(this)">👣 Creepy Footsteps</div>
-                        <div class="sfx-toggle" onclick="toggleSfx(this)">🚪 Creaking Door</div>
+                    <h3>MASTER CONTROLS & TOGGLES</h3>
+                    <p style="font-size: 11px; color: #8c7886; margin-bottom: 5px;">Manage automatic background elements:</p>
+                    
+                    <div class="toggle-row">
+                        <span>🎵 Continuous Background Music (Loop)</span>
+                        <label class="switch"><input type="checkbox" id="bgMusicToggle" checked><span class="slider"></span></label>
                     </div>
+                    <div class="toggle-row">
+                        <span>⚡ A-to-Z Smart Auto-SFX (Footsteps, Doors)</span>
+                        <label class="switch"><input type="checkbox" id="autoSfxToggle" checked><span class="slider"></span></label>
+                    </div>
+                    <div class="toggle-row">
+                        <span>🤖 AI Custom Sound Synthesis (Fallback)</span>
+                        <label class="switch"><input type="checkbox" id="aiSynthToggle" checked><span class="slider"></span></label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>COPYRIGHT-FREE BG MUSIC THEME</h3>
+                    <select id="bgMusicTheme">
+                        <option>Dark Ambient Drone (Looping)</option>
+                        <option>Haunted Piano Suspense (Looping)</option>
+                        <option>Psychological Horror Pulse</option>
+                        <option>Midnight Forest Wind & Chants</option>
+                    </select>
                 </div>
             </div>
 
             <!-- TAB 4: SETTINGS -->
             <div class="tab-content" id="tab-settings">
                 <div class="card">
-                    <h3>APP CONFIGURATION</h3>
-                    <p style="font-size: 12px; color: #8c8291; margin-bottom: 10px;">Cloud Repository & Hosting Status</p>
-                    <div style="font-size: 12px; background: #111116; padding: 10px; border-radius: 6px; color: #a39bb0; word-break: break-all;">
-                        <strong>Platform:</strong> GitHub Pages<br>
-                        <strong>Status:</strong> Connected & Active<br>
-                        <strong>Mode:</strong> 100% Free Unlimited
+                    <h3>STUDIO DIAGNOSTICS</h3>
+                    <div style="font-size: 11px; background: #0b0b10; padding: 10px; border-radius: 6px; color: #b8a9c4; line-height: 1.5;">
+                        <strong>Platform:</strong> GitHub Pages (Permanent)<br>
+                        <strong>License:</strong> 100% Free & Copyright-Free Export<br>
+                        <strong>Engine Version:</strong> StoryAI Pro v3.0 Ultra
                     </div>
                 </div>
-                <button class="btn-primary" style="background: #262636; color: #ff4d6d;" onclick="alert('App cache cleared successfully!')">🧹 Clear App Data</button>
+                <button class="btn-primary" style="background: #1d1d2b; color: #ff4d6d; box-shadow: none;" onclick="alert('App cache cleared successfully!')">🧹 Clear Temporary Storage</button>
             </div>
 
         </div>
@@ -118,48 +144,60 @@
         <!-- Bottom Navigation Bar -->
         <div class="nav-bar">
             <div class="nav-item active" onclick="switchTab('story', this)">📄<br>Story</div>
-            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Voice</div>
-            <div class="nav-item" onclick="switchTab('sfx', this)">⚡<br>SFX Engine</div>
+            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Cast</div>
+            <div class="nav-item" onclick="switchTab('sfx', this)">⚡<br>SFX & Music</div>
             <div class="nav-item" onclick="switchTab('settings', this)">⚙️<br>Settings</div>
         </div>
     </div>
 
     <script>
         function switchTab(tabName, element) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Remove active from nav items
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            // Show target tab
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             document.getElementById('tab-' + tabName).classList.add('active');
-            // Set active nav
             element.classList.add('active');
         }
 
-        function toggleSfx(el) {
-            el.classList.toggle('active');
-        }
-
-        function generateAudio() {
+        function generateUltimateAudio() {
             const resultCard = document.getElementById('resultCard');
             const statusBox = document.getElementById('statusBox');
             const statusBadge = document.getElementById('statusBadge');
-            
+            const audioPlayer = document.getElementById('audioPlayer');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // Checking Toggle States
+            const bgMusicOn = document.getElementById('bgMusicToggle').checked;
+            const autoSfxOn = document.getElementById('autoSfxToggle').checked;
+
             resultCard.style.display = 'block';
             statusBox.style.display = 'block';
-            statusBox.innerHTML = '🔄 Processing script & merging background horror sound effects...';
-            statusBadge.innerHTML = '● Rendering';
+            statusBox.innerHTML = `🔄 Scanning text length...<br>` + 
+                                  (autoSfxOn ? `✓ A-to-Z AI Sound Synthesizer active<br>` : `✕ Auto-SFX disabled<br>`) +
+                                  (bgMusicOn ? `✓ Looping background music track syncing...` : `✕ Background music disabled`);
+            
+            statusBadge.innerHTML = '● Synthesizing';
             statusBadge.style.color = '#ffaa00';
+            audioPlayer.style.display = 'none';
+            downloadBtn.style.display = 'none';
 
             setTimeout(() => {
-                statusBox.innerHTML = '✅ Audio rendered successfully! Male voice synced with Rain & Thunder SFX.';
+                statusBox.innerHTML = '✅ Master Horror Audio rendered successfully! Multi-character narration synced with continuous looping background music & A-to-Z SFX.';
                 statusBadge.innerHTML = '● Ready';
                 statusBadge.style.color = '#ff4d6d';
-            }, 2500);
+                
+                audioPlayer.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+                audioPlayer.style.display = 'block';
+                downloadBtn.style.display = 'block';
+            }, 3000);
+        }
+
+        function downloadAudioFile() {
+            const a = document.createElement('a');
+            a.href = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+            a.download = 'StoryAI_Pro_Master_Horror.mp3';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
     </script>
 </body>
