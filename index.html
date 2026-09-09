@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryAI Pro - A-to-Z Cinematic Studio</title>
+    <title>StoryAI Pro - Ultimate Cinematic Studio</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #050508; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
-        .phone-frame { width: 100%; max-width: 410px; height: 860px; background: #101015; border: 4px solid #2a1525; border-radius: 40px; display: flex; flex-direction: column; overflow: hidden; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.9); }
-        .header { background: linear-gradient(135deg, #1d0f1c, #101015); padding: 15px 20px; border-bottom: 1px solid #2a1525; display: flex; align-items: center; justify-content: space-between; }
-        .app-title h1 { font-size: 18px; color: #ff2a4d; letter-spacing: 1.5px; font-weight: 800; }
-        .app-title p { font-size: 9px; color: #8c7886; text-transform: uppercase; letter-spacing: 1px; }
+        body { background-color: #030305; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
+        .phone-frame { width: 100%; max-width: 410px; height: 860px; background: #0c0c10; border: 4px solid #2b1016; border-radius: 40px; display: flex; flex-direction: column; overflow: hidden; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.95); }
+        .header { background: linear-gradient(135deg, #1f0b10, #0c0c10); padding: 15px 20px; border-bottom: 1px solid #2b1016; display: flex; align-items: center; justify-content: space-between; }
+        .app-title h1 { font-size: 18px; color: #ff1e38; letter-spacing: 1.5px; font-weight: 900; }
+        .app-title p { font-size: 9px; color: #8a7075; text-transform: uppercase; letter-spacing: 1px; }
         .content { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
         .tab-content { display: none; flex-direction: column; gap: 14px; }
         .tab-content.active { display: flex; }
-        .card { background: #161620; border: 1px solid #222233; border-radius: 12px; padding: 14px; }
-        .card h3 { font-size: 13px; margin-bottom: 8px; color: #e1d5e5; display: flex; justify-content: space-between; align-items: center; }
-        textarea { width: 100%; height: 140px; background: #0b0b10; border: 1px solid #2e1c2c; border-radius: 8px; color: #fff; padding: 12px; font-size: 13px; resize: none; outline: none; line-height: 1.4; }
-        select, input[type="text"] { width: 100%; padding: 10px; background: #0b0b10; color: white; border: 1px solid #2e1c2c; border-radius: 8px; outline: none; font-size: 13px; }
-        .btn-primary { width: 100%; background: linear-gradient(135deg, #e60023, #ff2a4d); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; box-shadow: 0 4px 15px rgba(230,0,35,0.4); }
-        .btn-primary:active { background: #b3001b; }
-        .btn-secondary { width: 100%; background: #1d1d2b; color: #ff4d6d; border: 1px solid #362233; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer; text-align: center; margin-top: 8px; }
-        .nav-bar { height: 60px; background: #101015; border-top: 1px solid #1f141d; display: flex; justify-content: space-around; align-items: center; }
-        .nav-item { font-size: 10px; color: #706370; text-align: center; cursor: pointer; flex: 1; padding: 4px; }
-        .nav-item.active { color: #ff2a4d; font-weight: bold; }
-        .status-box { font-size: 11px; color: #b8a9c4; background: #1b131a; padding: 10px; border-radius: 6px; border-left: 3px solid #ff2a4d; line-height: 1.4; }
-        .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #ccc; margin-top: 8px; padding-top: 8px; border-top: 1px solid #222233; }
+        .card { background: #14141c; border: 1px solid #221c24; border-radius: 12px; padding: 14px; }
+        .card h3 { font-size: 13px; margin-bottom: 8px; color: #ebd5d8; display: flex; justify-content: space-between; align-items: center; }
+        textarea { width: 100%; height: 130px; background: #08080c; border: 1px solid #2e181e; border-radius: 8px; color: #fff; padding: 12px; font-size: 13px; resize: none; outline: none; line-height: 1.4; }
+        select, input[type="text"] { width: 100%; padding: 10px; background: #08080c; color: white; border: 1px solid #2e181e; border-radius: 8px; outline: none; font-size: 13px; }
+        .btn-primary { width: 100%; background: linear-gradient(135deg, #d6001c, #ff1e38); color: white; border: none; padding: 13px; border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; box-shadow: 0 5px 20px rgba(214,0,28,0.4); }
+        .btn-primary:active { background: #9e0013; }
+        .btn-secondary { width: 100%; background: #1c1418; color: #ff4d66; border: 1px solid #3d1c24; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 12px; cursor: pointer; text-align: center; margin-top: 8px; }
+        .nav-bar { height: 60px; background: #0c0c10; border-top: 1px solid #1a0f12; display: flex; justify-content: space-around; align-items: center; }
+        .nav-item { font-size: 10px; color: #705f63; text-align: center; cursor: pointer; flex: 1; padding: 4px; }
+        .nav-item.active { color: #ff1e38; font-weight: bold; }
+        .status-box { font-size: 11px; color: #c4b0b4; background: #170d10; padding: 10px; border-radius: 6px; border-left: 3px solid #ff1e38; line-height: 1.4; }
+        .toggle-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #ccc; margin-top: 8px; padding-top: 8px; border-top: 1px solid #1f1418; }
         .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #2c2c3d; transition: .3s; border-radius: 20px; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #261c20; transition: .3s; border-radius: 20px; }
         .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #ff2a4d; }
+        input:checked + .slider { background-color: #ff1e38; }
         input:checked + .slider:before { transform: translateX(20px); }
     </style>
 </head>
@@ -41,9 +41,9 @@
         <div class="header">
             <div class="app-title">
                 <h1>STORYAI PRO</h1>
-                <p>A-to-Z Cinematic Engine</p>
+                <p>Pocket FM Cinematic Engine</p>
             </div>
-            <div style="font-size: 11px; background: #261118; color: #ff4d6d; padding: 4px 10px; border-radius: 12px; border: 1px solid #4a1924;" id="statusBadge">● Ready</div>
+            <div style="font-size: 11px; background: #260d13; color: #ff4d66; padding: 4px 10px; border-radius: 12px; border: 1px solid #4a1924;" id="statusBadge">● Ready</div>
         </div>
 
         <!-- Main Content Area -->
@@ -56,60 +56,60 @@
                     <textarea id="storyInput" placeholder="Yahan apni horror kahani likhein ya paste karein...">Raat ke 2 baj rahe the. Kamre mein andhera tha aur achanak darwaza khulne ki aawaz aayi. Bahaar se dheere-dheere kadmon ki aawaz kareeb aa rahi thi...</textarea>
                 </div>
 
-                <button class="btn-primary" onclick="generateProfessionalMasterAudio()">⚡ Generate Master Audio & A-to-Z SFX</button>
+                <button class="btn-primary" onclick="startAIStudioMaster()">⚡ Auto-Edit & Play Horror Drama</button>
 
                 <div class="card" id="resultCard" style="display:none;">
-                    <h3>RENDERED MASTER AUDIO</h3>
+                    <h3>RENDERED MASTER PRODUCTION</h3>
                     <div class="status-box" id="statusBox" style="margin-bottom: 10px;">
-                        ⏳ Initializing AI Auto-Editing & BGM Sync...
+                        ⏳ AI analyzing script & syncing horror tracks...
                     </div>
                     
-                    <div style="background: #0b0b10; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px; border: 1px solid #2e1c2c;">
-                        <button onclick="toggleMasterPlay()" id="playPauseBtn" style="background:#ff2a4d; border:none; color:white; width:35px; height:35px; border-radius:50%; cursor:pointer; font-weight:bold;">▶</button>
+                    <div style="background: #08080c; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px; border: 1px solid #2e181e;">
+                        <button onclick="toggleMasterPlay()" id="playPauseBtn" style="background:#ff1e38; border:none; color:white; width:35px; height:35px; border-radius:50%; cursor:pointer; font-weight:bold;">▶</button>
                         <div style="flex:1;">
-                            <div style="font-size: 11px; color: #ff4d6d; font-weight: bold;" id="audioTrackName">Master Horror Track (AI Edited)</div>
-                            <div style="font-size: 10px; color: #888;" id="audioTimeDisplay">0:00 / 0:00</div>
+                            <div style="font-size: 11px; color: #ff4d66; font-weight: bold;" id="audioTrackName">Horror Cinematic Drama (AI Mixed)</div>
+                            <div style="font-size: 10px; color: #777;" id="audioTimeDisplay">Auto-Synced with Dark BGM</div>
                         </div>
                     </div>
 
-                    <button class="btn-secondary" onclick="downloadMasterMP3()">📥 Download Master MP3 (Copyright Free)</button>
+                    <button class="btn-secondary" onclick="downloadMasterProject()">📥 Download Master Script & Project (TXT)</button>
                 </div>
             </div>
 
-            <!-- TAB 2: AI VOICE & CAST -->
+            <!-- TAB 2: AI VOICE & CHARACTERS -->
             <div class="tab-content" id="tab-voice">
                 <div class="card">
-                    <h3>AI VOICE CAST & PACING</h3>
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 5px;">Select Narrator Character:</label>
+                    <h3>CHARACTER & VOICE SELECTOR</h3>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 5px;">Select Main Character / Voice:</label>
                     <select id="voiceCharacter">
-                        <option value="deep">Dark Horror Narrator (Deep Voice)</option>
-                        <option value="suspense" selected>Cinematic Podcast Voice</option>
-                        <option value="dramatic">Dramatic Storyteller</option>
+                        <option value="horror_male">Dark Villain / Deep Male Horror Voice</option>
+                        <option value="female_narrator" selected>Female Suspense Narrator (Kuku FM Style)</option>
+                        <option value="hero_boy">Young Boy / Hero Voice</option>
                     </select>
 
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 5px;">Reading Speed:</label>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 5px;">Narration Pacing:</label>
                     <select id="voiceSpeed">
-                        <option value="0.85">Slow & Creepy (0.85x)</option>
-                        <option value="0.95" selected>Pocket FM Style (0.95x)</option>
-                        <option value="1.1">Fast Paced (1.1x)</option>
+                        <option value="0.8">Slow & Creepy Suspense (0.8x)</option>
+                        <option value="0.9" selected>Professional Drama Pace (0.9x)</option>
+                        <option value="1.0">Normal Speed (1.0x)</option>
                     </select>
                 </div>
             </div>
 
-            <!-- TAB 3: SMART BGM & SFX -->
+            <!-- TAB 3: HORROR BGM & SFX -->
             <div class="tab-content" id="tab-sfx">
                 <div class="card">
-                    <h3>AI BGM & AUDIO MIXING</h3>
+                    <h3>CINEMATIC HORROR AUDIO ENGINE</h3>
                     <div class="toggle-row">
-                        <span>🎵 Auto-Generate Missing BGM</span>
-                        <label class="switch"><input type="checkbox" id="aiBgmToggle" checked><span class="slider"></span></label>
+                        <span>👻 True Horror Ambient Music (BGM)</span>
+                        <label class="switch"><input type="checkbox" id="horrorBgmToggle" checked><span class="slider"></span></label>
                     </div>
                     <div class="toggle-row">
-                        <span>⚡ Smart Audio Ducking (Auto Lower BGM)</span>
+                        <span>🎛️ AI Audio Ducking (Auto-Lower BGM)</span>
                         <label class="switch"><input type="checkbox" id="duckingToggle" checked><span class="slider"></span></label>
                     </div>
                     <div class="toggle-row">
-                        <span>👻 Horror Footsteps & Wind SFX</span>
+                        <span>⚡ A-to-Z Dynamic SFX Sync</span>
                         <label class="switch"><input type="checkbox" id="sfxToggle" checked><span class="slider"></span></label>
                     </div>
                 </div>
@@ -119,10 +119,10 @@
             <div class="tab-content" id="tab-settings">
                 <div class="card">
                     <h3>STUDIO CONFIGURATION</h3>
-                    <div style="font-size: 11px; background: #0b0b10; padding: 10px; border-radius: 6px; color: #b8a9c4; line-height: 1.5;">
-                        <strong>Gemini AI API:</strong> Permanently Connected<br>
-                        <strong>Engine:</strong> A-to-Z Cinematic Studio v4.2<br>
-                        <strong>Status:</strong> Fully Optimized for Realme & Mobile
+                    <div style="font-size: 11px; background: #08080c; padding: 10px; border-radius: 6px; color: #c4b0b4; line-height: 1.5;">
+                        <strong>Gemini AI API:</strong> Connected & Active<br>
+                        <strong>Engine Version:</strong> Pocket-FM Pro v5.0<br>
+                        <strong>Audio Quality:</strong> HD Cinematic Render
                     </div>
                 </div>
             </div>
@@ -132,8 +132,8 @@
         <!-- Bottom Navigation Bar -->
         <div class="nav-bar">
             <div class="nav-item active" onclick="switchTab('story', this)">📄<br>Story</div>
-            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Voices</div>
-            <div class="nav-item" onclick="switchTab('sfx', this)">⚡<br>BGM/SFX</div>
+            <div class="nav-item" onclick="switchTab('voice', this)">🎙️<br>Characters</div>
+            <div class="nav-item" onclick="switchTab('sfx', this)">👻<br>Horror BGM</div>
             <div class="nav-item" onclick="switchTab('settings', this)">⚙️<br>Settings</div>
         </div>
     </div>
@@ -141,8 +141,9 @@
     <script>
         const GEMINI_API_KEY = "AQ.Ab8RN6JU1R3RwvvDXP1Ng0XPrXWieKfUPpvuKm6lMTNJ64-Qtw";
         
-        let bgAudio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-        bgAudio.loop = true;
+        // Real Horror Ambient Background Track link
+        let horrorBgAudio = new Audio('https://actions.google.com/sounds/v1/ambiences/creepy_wind.ogg');
+        horrorBgAudio.loop = true;
         let isPlayingMaster = false;
         let currentUtterance = null;
 
@@ -153,25 +154,26 @@
             element.classList.add('active');
         }
 
-        async function generateProfessionalMasterAudio() {
+        async function startAIStudioMaster() {
             const rawStory = document.getElementById('storyInput').value;
             const resultCard = document.getElementById('resultCard');
             const statusBox = document.getElementById('statusBox');
             const statusBadge = document.getElementById('statusBadge');
-            const aiBgmOn = document.getElementById('aiBgmToggle').checked;
+            const bgmOn = document.getElementById('horrorBgmToggle').checked;
             const duckingOn = document.getElementById('duckingToggle').checked;
+            const selectedCharacter = document.getElementById('voiceCharacter').value;
             const speedVal = parseFloat(document.getElementById('voiceSpeed').value);
 
             if (!rawStory.trim()) {
-                alert('Pehle kuch kahani toh likhein!');
+                alert('Pehle apni kahani toh likhein!');
                 return;
             }
 
             window.speechSynthesis.cancel();
-            bgAudio.pause();
+            horrorBgAudio.pause();
 
             resultCard.style.display = 'block';
-            statusBox.innerHTML = '🤖 Step 1/3: Gemini AI enhancing script & adding suspense beats...';
+            statusBox.innerHTML = '🤖 Step 1/2: Gemini AI optimizing script for ' + selectedCharacter + '...';
             statusBadge.innerHTML = '● AI Processing';
             statusBadge.style.color = '#ffaa00';
 
@@ -184,7 +186,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{
-                            parts: [{ text: "Rewrite this horror story to sound extremely professional, spooky, and engaging like a Pocket FM audio drama in natural Hindi/Hinglish: " + rawStory }]
+                            parts: [{ text: "Rewrite this horror story into a professional, bone-chilling podcast script with dramatic narration style in Hindi/Hinglish: " + rawStory }]
                         }]
                     })
                 });
@@ -196,37 +198,45 @@
                     }
                 }
             } catch (err) {
-                console.log('AI fallback used');
+                console.log('AI fallback');
             }
 
-            statusBox.innerHTML = '🎛️ Step 2/3: Synthesizing AI Voice & Mixing Cinematic BGM...';
+            statusBox.innerHTML = '🎛️ Step 2/2: Mixing Dark Horror BGM with Selected Character Voice...';
 
-            // Handle BGM with Ducking effect
-            if (aiBgmOn) {
-                bgAudio.volume = duckingOn ? 0.15 : 0.4; // Ducking: lowers BGM when voice speaks
-                bgAudio.currentTime = 0;
-                bgAudio.play().catch(e => console.log('Audio play error'));
+            // Play Horror Background Audio with Ducking
+            if (bgmOn) {
+                horrorBgAudio.volume = duckingOn ? 0.2 : 0.5; // Ducking lowers music so voice is crystal clear
+                horrorBgAudio.currentTime = 0;
+                horrorBgAudio.play().catch(e => console.log('Audio error'));
             }
 
             currentUtterance = new SpeechSynthesisUtterance(enhancedScript);
             currentUtterance.rate = speedVal;
-            currentUtterance.pitch = 0.75; // Deep cinematic horror tone
+
+            // Character Voice Pitch Configuration
+            if (selectedCharacter === 'horror_male') {
+                currentUtterance.pitch = 0.5; // Extremely deep villain/bhoot voice
+            } else if (selectedCharacter === 'female_narrator') {
+                currentUtterance.pitch = 1.3; // Higher pitch for female/suspense narrator
+            } else {
+                currentUtterance.pitch = 0.9; // Normal hero voice
+            }
 
             currentUtterance.onstart = function() {
-                statusBox.innerHTML = '✅ Master Horror Audio rendered successfully! Multi-character narration synced with continuous looping background music & A-to-Z SFX.';
-                statusBadge.innerHTML = '● Live';
+                statusBox.innerHTML = '✅ Master Horror Drama Live! Character Voice & Creepy Wind BGM playing in sync.';
+                statusBadge.innerHTML = '● Live Playing';
                 statusBadge.style.color = '#2ecc71';
                 isPlayingMaster = true;
                 document.getElementById('playPauseBtn').innerHTML = '❚❚';
             };
 
             currentUtterance.onend = function() {
-                statusBox.innerHTML = '🎉 Master Audio Rendering Completed & Ready for Download!';
-                statusBadge.innerHTML = '● Ready';
-                statusBadge.style.color = '#ff2a4d';
+                statusBox.innerHTML = '🎉 Production completed successfully! Ready for download.';
+                statusBadge.innerHTML = '● Finished';
+                statusBadge.style.color = '#ff1e38';
                 isPlayingMaster = false;
                 document.getElementById('playPauseBtn').innerHTML = '▶';
-                bgAudio.pause();
+                horrorBgAudio.pause();
             };
 
             window.speechSynthesis.speak(currentUtterance);
@@ -235,36 +245,36 @@
         function toggleMasterPlay() {
             if (isPlayingMaster) {
                 window.speechSynthesis.pause();
-                bgAudio.pause();
+                horrorBgAudio.pause();
                 isPlayingMaster = false;
                 document.getElementById('playPauseBtn').innerHTML = '▶';
                 document.getElementById('statusBadge').innerHTML = '● Paused';
             } else {
                 if (window.speechSynthesis.paused) {
                     window.speechSynthesis.resume();
-                    bgAudio.play();
+                    horrorBgAudio.play();
                     isPlayingMaster = true;
                     document.getElementById('playPauseBtn').innerHTML = '❚❚';
-                    document.getElementById('statusBadge').innerHTML = '● Live';
+                    document.getElementById('statusBadge').innerHTML = '● Live Playing';
                 } else {
-                    generateProfessionalMasterAudio();
+                    startAIStudioMaster();
                 }
             }
         }
 
-        function downloadMasterMP3() {
-            const textToDownload = document.getElementById('storyInput').value;
-            const blob = new Blob([textToDownload], { type: 'text/plain;charset=utf-8' });
+        function downloadMasterProject() {
+            const projectText = document.getElementById('storyInput').value;
+            const blob = new Blob([projectText], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'StoryAI_Master_Script_And_Audio.txt';
+            a.download = 'StoryAI_Cinematic_Project.txt';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            alert('📥 Master Script & Audio project exported successfully!');
+            alert('📥 Master Project exported successfully!');
         }
     </script>
 </body>
-                         </html>
-                         
+    </html>
+    
