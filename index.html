@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryAI Pro - Ultimate Studio Engine</title>
+    <title>StoryAI Pro - Dual Male Voice Studio</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #020205; color: #f1f1f1; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 10px; }
@@ -41,7 +41,7 @@
         <div class="header">
             <div class="app-title">
                 <h1>STORYAI PRO</h1>
-                <p>Google Studio AI Engine</p>
+                <p>Gemini AI + Dual Male Voices</p>
             </div>
             <div style="font-size: 11px; background: #260a10; color: #ff4d66; padding: 4px 10px; border-radius: 12px; border: 1px solid #4a1420;" id="statusBadge">● Ready</div>
         </div>
@@ -56,42 +56,41 @@
                     <textarea id="storyInput" placeholder="Yahan apni darawni kahani likhein... Gemini AI ise professional podcast script mein badlega.">Raat ke 2 baj rahe the. Kamre mein andhera tha aur achanak darwaza khulne ki aawaz aayi. Bahaar se dheere-dheere kadmon ki aawaz kareeb aa rahi thi...</textarea>
                 </div>
 
-                <button class="btn-primary" onclick="startMasterProduction()">⚡ Gemini AI Auto-Edit & Play</button>
+                <button class="btn-primary" onclick="startMasterProduction()">⚡ Gemini AI Edit & Play Story</button>
 
                 <div class="card" id="resultCard" style="display:none;">
                     <h3>STUDIO MASTER PLAYER</h3>
                     <div class="status-box" id="statusBox" style="margin-bottom: 10px;">
-                        ⏳ Connecting to Google AI & syncing horror BGM...
+                        ⏳ Connecting to Gemini API & syncing horror BGM...
                     </div>
                     
                     <div style="background: #06060a; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px; border: 1px solid #2b1218;">
                         <button onclick="toggleMasterPlay()" id="playPauseBtn" style="background:#ff1a35; border:none; color:white; width:35px; height:35px; border-radius:50%; cursor:pointer; font-weight:bold;">▶</button>
                         <div style="flex:1;">
-                            <div style="font-size: 11px; color: #ff4d66; font-weight: bold;" id="audioTrackName">Cinematic AI Master Track</div>
+                            <div style="font-size: 11px; color: #ff4d66; font-weight: bold;" id="audioTrackName">Gemini AI Master Track</div>
                             <div style="font-size: 10px; color: #777;" id="audioTimeDisplay">Auto-Synced with Horror BGM</div>
                         </div>
                     </div>
 
-                    <button class="btn-secondary" onclick="downloadMasterProject()">📥 Export Master Project (TXT)</button>
+                    <button class="btn-secondary" onclick="downloadMasterProject()">📥 Export Script (TXT)</button>
                 </div>
             </div>
 
             <!-- TAB 2: REAL VOICE & CAST -->
             <div class="tab-content" id="tab-voice">
                 <div class="card">
-                    <h3>REAL PROFESSIONAL VOICE CAST</h3>
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 5px;">Select Studio Voice Profile:</label>
+                    <h3>SELECT MALE VOICE PROFILE</h3>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-bottom: 5px;">Choose Male Narrator Aawaz:</label>
                     <select id="voiceCharacter">
-                        <option value="deep_villain">Deep Heavy Villain / Horror Voice (Non-Cartoon)</option>
-                        <option value="mature_narrator" selected>Mature Podcast Narrator (Pocket FM Style)</option>
-                        <option value="suspense_hero">Suspense Drama Lead</option>
+                        <option value="male1" selected>Male Voice 1: Professional Podcast Host (Clear & Natural)</option>
+                        <option value="male2">Male Voice 2: Deep Mystery Narrator (Bold & Heavy)</option>
                     </select>
 
-                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 5px;">Narration Pacing Speed:</label>
+                    <label style="font-size: 11px; color: #aaa; display: block; margin-top: 10px; margin-bottom: 5px;">Narration Speed:</label>
                     <select id="voiceSpeed">
-                        <option value="0.7">Slow & Creepy Thriller (0.7x)</option>
-                        <option value="0.8" selected>Professional Podcast Pace (0.8x)</option>
-                        <option value="0.95">Normal Speed (0.95x)</option>
+                        <option value="0.75">Slow & Suspenseful (0.75x)</option>
+                        <option value="0.85" selected>Podcast Pace (0.85x)</option>
+                        <option value="1.0">Normal Speed (1.0x)</option>
                     </select>
                 </div>
             </div>
@@ -116,9 +115,9 @@
                 <div class="card">
                     <h3>API DIAGNOSTICS</h3>
                     <div style="font-size: 11px; background: #06060a; padding: 10px; border-radius: 6px; color: #c4a8b0; line-height: 1.5;">
-                        <strong>Google AI Studio Key:</strong> Linked & Active (AQ...)<br>
-                        <strong>Engine:</strong> Cinematic Pro v7.0<br>
-                        <strong>Status:</strong> 100% Unrestricted Studio Mode
+                        <strong>Gemini API Key:</strong> Linked & Active (AQ...)<br>
+                        <strong>Engine:</strong> Dual Male Voice Studio v8.0<br>
+                        <strong>Status:</strong> 100% Free & Unrestricted
                     </div>
                 </div>
             </div>
@@ -135,14 +134,19 @@
     </div>
 
     <script>
-        // User Provided Google AI Studio Key
         const GEMINI_API_KEY = "AQ.Ab8RN6JU1R3RwvvDXP1Ng0XPrXWieKfUPpvuKm6lMTNJ64-Qtw";
         
-        // Horror Ambient Background Track
         let horrorAudio = new Audio('https://actions.google.com/sounds/v1/ambiences/spooky_wind_and_owls.ogg');
         horrorAudio.loop = true;
         let isPlayingMaster = false;
         let currentUtterance = null;
+        let availableVoices = [];
+
+        function loadVoices() {
+            availableVoices = window.speechSynthesis.getVoices();
+        }
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+        loadVoices();
 
         function switchTab(tabName, element) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
@@ -170,8 +174,8 @@
             horrorAudio.pause();
 
             resultCard.style.display = 'block';
-            statusBox.innerHTML = '🤖 Step 1/2: Google AI Studio analyzing script & optimizing emotional pauses...';
-            statusBadge.innerHTML = '● AI Processing';
+            statusBox.innerHTML = '🤖 Step 1/2: Gemini AI API polishing your horror script...';
+            statusBadge.innerHTML = '● Gemini AI Active';
             statusBadge.style.color = '#ffaa00';
 
             let enhancedScript = rawStory;
@@ -183,7 +187,7 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         contents: [{
-                            parts: [{ text: "Rewrite this horror story into a heavy, bone-chilling professional podcast narration script with dramatic punctuation (dots and dashes for pauses) in Hindi/Hinglish: " + rawStory }]
+                            parts: [{ text: "Rewrite this horror story into an engaging podcast storytelling script with proper pauses (dots and commas) in Hindi/Hinglish: " + rawStory }]
                         }]
                     })
                 });
@@ -195,10 +199,10 @@
                     }
                 }
             } catch (err) {
-                console.log('AI fallback used');
+                console.log('Gemini API fallback used');
             }
 
-            statusBox.innerHTML = '🎛️ Step 2/2: Mixing Dark Horror Soundscapes with Professional Deep Voice Cast...';
+            statusBox.innerHTML = '🎛️ Step 2/2: Playing Selected Male Voice with Dark Horror BGM...';
 
             if (bgmOn) {
                 horrorAudio.volume = duckingOn ? 0.15 : 0.4;
@@ -209,17 +213,27 @@
             currentUtterance = new SpeechSynthesisUtterance(enhancedScript);
             currentUtterance.rate = speedVal;
 
-            // Deep Voice Pitch configuration to completely avoid cartoonish/childish tone
-            if (selectedCharacter === 'deep_villain') {
-                currentUtterance.pitch = 0.4; // Very heavy villain tone
-            } else if (selectedCharacter === 'mature_narrator') {
-                currentUtterance.pitch = 0.75; // Mature podcast tone
+            let voices = window.speechSynthesis.getVoices();
+            
+            // Filter out male voices based on selection
+            let maleVoices = voices.filter(v => v.lang.includes('hi') || v.lang.includes('en-IN') || v.lang.includes('en'));
+            
+            if (selectedCharacter === 'male1') {
+                // First Male Voice Profile (Clear Podcast Host)
+                if (maleVoices.length > 0) currentUtterance.voice = maleVoices[0];
+                currentUtterance.pitch = 0.9;
             } else {
-                currentUtterance.pitch = 0.9; // Suspense lead tone
+                // Second Male Voice Profile (Deep Mystery Host)
+                if (maleVoices.length > 1) {
+                    currentUtterance.voice = maleVoices[1];
+                } else if (maleVoices.length > 0) {
+                    currentUtterance.voice = maleVoices[0];
+                }
+                currentUtterance.pitch = 0.75;
             }
 
             currentUtterance.onstart = function() {
-                statusBox.innerHTML = '✅ Google AI Studio Master Drama Live! Professional voice cast synced with dark creepy BGM.';
+                statusBox.innerHTML = '✅ Dual Male Voice Studio Live! Enjoy your horror podcast.';
                 statusBadge.innerHTML = '● Live Studio';
                 statusBadge.style.color = '#2ecc71';
                 isPlayingMaster = true;
@@ -264,13 +278,13 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'StoryAI_Master_Production.txt';
+            a.download = 'StoryAI_DualMale_Project.txt';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            alert('📥 Master project configuration exported successfully!');
+            alert('📥 Script configuration exported successfully!');
         }
     </script>
 </body>
     </html>
-                        
+    
